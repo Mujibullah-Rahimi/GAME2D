@@ -1,10 +1,11 @@
 package no.hiof.game2d.player;
 
 import no.hiof.game2d.Canvas;
+import no.hiof.game2d.GameObject;
 
 import java.awt.image.BufferedImage;
 
-public class Player {
+public class Player implements GameObject {
     private String name;
     private BufferedImage image;
 
@@ -18,4 +19,9 @@ public class Player {
     public static void setSize(int height, int width){}
 
     public static void moveWithWasd(int movementSpeed){}
+
+    @Override
+    public void draw(Canvas canvas, int positionX, int positionY) {
+
+    }
 }
