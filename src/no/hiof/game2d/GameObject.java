@@ -1,5 +1,5 @@
 package no.hiof.game2d;
 
 public interface GameObject {
-    void draw(Canvas canvas, int positionX, int positionY);
+    void draw(Panel panel, int positionX, int positionY);
 }

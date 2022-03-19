@@ -1,8 +1,8 @@
 package no.hiof.game2d.menu;
 
-import no.hiof.game2d.Canvas;
+import no.hiof.game2d.Panel;
 
 public interface MenuObject {
-    void draw(Canvas canvas, int positionX, int positionY);
+    void draw(Panel panel, int positionX, int positionY);
 
 }
