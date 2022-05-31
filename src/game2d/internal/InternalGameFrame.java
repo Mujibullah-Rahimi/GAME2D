@@ -4,11 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InternalGameFrame extends JFrame {
-    private JPanel panel;
+    private InternalGamePanel panel;
 
     public InternalGameFrame(){
-        panel = new InternalGamePanel();
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.add(panel);
@@ -17,8 +15,9 @@ public class InternalGameFrame extends JFrame {
         this.setVisible(true);
     }
 
-    public InternalGameFrame(int width, int height){
+    public InternalGameFrame(int width, int height, String title){
         panel = new InternalGamePanel(width, height);
+        this.setTitle(title);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
