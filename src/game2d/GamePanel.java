@@ -11,4 +11,8 @@ public class GamePanel {
     }
 
     public void runGame(){panel.startMyGameThread();}
+
+    public InternalGamePanel getPanel() {
+        return panel;
+    }
 }
