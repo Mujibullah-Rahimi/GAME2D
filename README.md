@@ -20,3 +20,5 @@ GameFrame gameFrame = new GameFrame(400, 200, "MyGame", gamePanel);
 
 gamePanel.runGame();
 ```
+
+For the full documentation see [Javadocs](.src/javadoc/index.html)
