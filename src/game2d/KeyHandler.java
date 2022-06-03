@@ -3,13 +3,17 @@ package game2d;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Keyhandler implements KeyListener {
+/**
+ * Class for handling Input; KeyPress and KeyRelease
+ * implements the KeyListener Interface
+ * @version 1.0.0
+ */
+public class KeyHandler implements KeyListener {
     public boolean wPressed, aPressed, sPressed, dPressed;
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
+    /**
+     * Method which change the state of the variables w-,a-,s-,dPressed when triggered
+     * @param e event that indicates that a keystroke occurred in a component
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
@@ -28,6 +32,10 @@ public class Keyhandler implements KeyListener {
         }
     }
 
+    /**
+     * Method which change the state of the variables w-,a-,s-,dPressed when triggered
+     * @param e event that indicates that a keystroke occurred in a component
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
@@ -44,5 +52,10 @@ public class Keyhandler implements KeyListener {
         if (key == KeyEvent.VK_D){
             dPressed = false;
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
     }
 }

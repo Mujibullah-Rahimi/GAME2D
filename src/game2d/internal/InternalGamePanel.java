@@ -1,19 +1,26 @@
 package game2d.internal;
 
-import game2d.Keyhandler;
+import game2d.KeyHandler;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Class which extends JPanel, and implements Runnable for its run method
+ * @version 1.0.0
+ */
 public class InternalGamePanel extends JPanel implements Runnable {
     Thread gameThread;
-    Keyhandler keyHandler = new Keyhandler();
-    // Set default position for player
+    KeyHandler keyHandler = new KeyHandler();
+    // Set default position and movementSpeed for player
     int playerX = 100;
     int playerY = 100;
     int movementSpeed = 5;
 
-    // Constructors
+    /**
+     * Creates an InternalGamePanel which is a subclass of JPanel through Inheritance
+     * setting a default size of 500x500
+     */
     public InternalGamePanel(){
         this.setPreferredSize(new Dimension(500,500));
         this.setDoubleBuffered(true);
@@ -21,6 +28,12 @@ public class InternalGamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
     }
+
+    /**
+     * Creates an InternalGamePanel which is a subclass of JPanel through Inheritance
+     * @param width the width of the InternalGamePanel
+     * @param height the height of the InternalGamePanel
+     */
     public InternalGamePanel(int width, int height){
         this.setPreferredSize(new Dimension(width,height));
         this.setDoubleBuffered(true);
@@ -28,11 +41,17 @@ public class InternalGamePanel extends JPanel implements Runnable {
         this.setFocusable(true);
     }
 
+    /**
+     * starting the gameThread, by calling the run method of the thread
+     */
     public void startMyGameThread(){
         gameThread = new Thread(this);
         gameThread.start();
     }
 
+    /**
+     * provides a run method which updates and repaints information in a loop
+     */
     public void run(){
         while (gameThread != null){
             // UPDATE: update information such as placement of elements
@@ -43,6 +62,9 @@ public class InternalGamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * method which updates information such as position of Player in case keys are pressed
+     */
     public void update(){
         if (keyHandler.wPressed){
             playerY -= movementSpeed;
@@ -58,12 +80,12 @@ public class InternalGamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * method which can paint / display objects on screen
+     * @param g a class that has many functions to draw objects on the screen
+     */
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-
-        g2d.setColor(Color.black);
-        g2d.fillRect(playerX, playerY, 48, 48);
-        g2d.dispose();
     }
 }
